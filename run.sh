@@ -1,5 +1,5 @@
 #!/bin/bash
-
+source .env
 if [ ! -d data ]; then
 	echo "creating data dir..."
 	mkdir -p data/obs/control data/tle data/results
@@ -7,9 +7,9 @@ if [ ! -d data ]; then
 fi
 
 echo "starting temporary docker"
-docker run --rm --tmpfs /tmp -v $(pwd)/data:/data -it stvid:latest "$@"
+docker run --rm --tmpfs /tmp -v $(pwd)/data:/data -it knegge/stvid:${TAG} "$@"
 
-# For acquire to work with CV2, add the followinf after docker run in the line above
+# For acquire to work with CV2, add the following after docker run in the line above
 # --device=/dev/video0
 
 # misc usb devices

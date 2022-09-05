@@ -1,5 +1,6 @@
 #!/bin/bash
-docker build -t stvid:latest .
+source .env
+docker build -t knegge/stvid:${TAG} .
 # --no-cache
 # --pull
 
