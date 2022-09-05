@@ -18,16 +18,16 @@ RUN apt-get -qq install python3-numpy python3-astropy python3-scipy python3-cycl
 RUN pip3 install zwoasi picamera2 spacetrack --prefer-binary
 
 RUN git clone https://gitlab.com/pierros/hough3d-code.git /hough3d-code &&\
-        cd /hough3d-code &&\
-        make all &&\
-        cp -p hough3dlines /usr/local/bin/hough3dlines &&\
-        cd / && rm -rf /hough3d-code
+	cd /hough3d-code &&\
+	make all &&\
+	cp -p hough3dlines /usr/local/bin/hough3dlines &&\
+	cd / && rm -rf /hough3d-code
 
 RUN git clone https://github.com/cbassa/satpredict /satpredict &&\
-        cd /satpredict &&\
-        make &&\
-        make install &&\
-        cd / && rm -rf /satpredict
+	cd /satpredict &&\
+	make &&\
+	make install &&\
+	cd / && rm -rf /satpredict
 
 #RUN sudo apt install giza-dev git make dos2unix source-extractor wcslib-dev libgsl-dev gfortran libpng-dev libx11-dev libjpeg-dev libexif-dev
 #RUN git clone https://github.com/cbassa/sattools /sattools
