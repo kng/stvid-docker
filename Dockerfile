@@ -32,15 +32,15 @@ RUN git clone https://github.com/cbassa/satpredict /satpredict &&\
 #RUN sudo apt install giza-dev git make dos2unix source-extractor wcslib-dev libgsl-dev gfortran libpng-dev libx11-dev libjpeg-dev libexif-dev
 #RUN git clone https://github.com/cbassa/sattools /sattools
 
-RUN git clone -b dev https://github.com/cbassa/stvid.git /stvid
-RUN chmod 0755 /stvid/*.py
+RUN git clone -b dev https://github.com/cbassa/stvid.git /opt/stvid
+RUN chmod 0755 /opt/stvid/*.py
 RUN ln -s /usr/bin/source-extractor /usr/local/bin/sextractor
 # workaround, ST_DATADIR=/stvid and this symlink
-RUN ln -s /stvid/source-extractor/ /stvid/sextractor
+RUN ln -s /opt/stvid/source-extractor/ /opt/stvid/sextractor
 #RUN sed 's/^#inparallel/inparallel/' /etc/astrometry.cfg > /etc/astrometry.cfg
 
 COPY entrypoint.sh /
 ENTRYPOINT ["bash", "/entrypoint.sh"]
-WORKDIR /data
-#CMD /stvid/acquire.py
+WORKDIR /srv
+#CMD /opt/stvid/acquire.py
 CMD bash

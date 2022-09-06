@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 #avahi-daemon --daemonize --no-drop-root
-if [ -f /data/stvid.env ]; then
-	source /data/stvid.env
+if [ -f /srv/stvid.env ]; then
+	source /srv/stvid.env
 fi
 exec "$@"
 

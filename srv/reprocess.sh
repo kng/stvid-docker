@@ -1,5 +1,5 @@
 #!/bin/bash
-find /data/obs -type f \( \
+find obs -type f \( \
         -iname \*.dat -o \
         -iname \*.png -o \
         -iname \*.cal -o \
